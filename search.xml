@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[书单]]></title>
-    <url>%2F2017%2F07%2F04%2F%E4%B9%A6%E5%8D%95%2F</url>
-    <content type="text"><![CDATA[书单2017-10 Tomcat 源码 Nginx 源码 Hadoop 源码 MapReduce 2017-09 Spring源码 算法导论 200p– 2017-08 深入理解Java虚拟机 算法导论 –200p 2017-07 Effective Java 设计模式 可复用面向对象软件的基础 2017-06 Thinking in Java 2017-05 Thinking in Java 2017-04 Thinking in Java]]></content>
-      <categories>
-        <category>成长</category>
-      </categories>
-      <tags>
-        <tag>书单</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[java进阶架构师]]></title>
     <url>%2F2017%2F07%2F04%2Fjava%E8%BF%9B%E9%98%B6%E6%9E%B6%E6%9E%84%E5%B8%88%2F</url>
     <content type="text"><![CDATA[JAVA 架构师、技术专家职位要求数据平台部架构师 （阿里） Java基础扎实，熟练掌握IO、多线程、集合等基础类库 熟悉分布式缓存、消息机制、搜索引擎等技术 熟悉J2EE规范 掌握常用的设计模式 熟悉高并发、高性能的分布式系统的设计及应用、调优 熟悉SQL、了解Mysql及相关分布式存储技术 有团队管理和项目管理的经验 有大数据平台研发或者开发经验 有互联网相关经历，有ERP、BOSS系统，大型企业及大型系统设计和架构能力 JAVA 技术专家（阿里）一 linux平台上的java语言编程 熟悉数据库开发技术 熟悉shell编程 熟悉网络编程、多线程编程技术、大规模系统开发和设计经验 对数据结构、算法设计、系统架构设计有较深刻的理解 对大规模数据存储、传输、处理有丰富的经验 精通算法和建模 二 熟悉J2EE设计模式、精通JAVA及web应用的开发 深入了解Spring、ibatis、webwork等框架（框架提供的特性和实现的原理） 熟悉分布式、多线程及高性能的设计与编码及性能调优 精通Internet基本协议（TCP/IP,HTTP）内容及相关应用 有大规模高并发访问的Web应用架构设计和开发经验 java面试考纲 —–&gt; 高级JAVA工程师Java基础 Collection和Map 掌握Collection和Map的继承体系 掌握ArrayList、Linkedlist、Vector、Stack、PriorityQueue、HashSet、LinkedHashSet、TreeSet、HashMap、LinedHashMap、TreeMap、WeakHashMap、EnumMap、HashTable的特点和实现原理。 掌握CopyOnWriteArrayList、CopyOnWriteArraySet、ConcurrentHashMap的实现原理和适用场景。 IO 掌握 InputStream、OutputStream、Reader、Writer的继承体系。 掌握字节流(FileInputStream、DataInputStream、BufferedInputStream、FileOutputSteam、DataOutputStream、BufferedOutputStream)和字符流(BufferedReader、InputStreamReader、FileReader、BufferedWriter、OutputStreamWriter、PrintWriter、FileWriter)，并熟练运用。 掌握NIO实现原理及使用方法。 异常 掌握Throwable继承体系。 掌握异常工作原理。 了解常见受检异常(比如FileNotFoundException)、非受检异常(比如NullPointerException)和错误(比如IOError)。 多线程 掌握Executors可以创建的三种(JAVA8增加了一种，共四种)线程池的特点及适用范围。 掌握多线程同步机制，并熟练运用。 Socket 掌握Socket通信原理。 熟练使用多线程结合Socket进行编程。 Java虚拟机 JVM内存区域划分 掌握程序计数器、堆、虚拟机栈、本地方法栈、方法区（JAVA8已移除）、元空间（JAVA8新增）的作用及基本原理。 掌握堆的划分：新生代（Eden、Survivor1、Survivor2）和老年代的作用及工作原理。 掌握JVM内存参数设置及调优。 类加载 掌握类的加载阶段：加载、链接（验证、准备、解析）、初始化、使用、卸载。 掌握类加载器分类及其应用：启动类加载器、扩展类加载器、应用程序类加载器、自定义加载器。 J2EE 掌握JSP内置对象、动作及相关特点和工作原理。 掌握Servlet的特点和工作原理。 掌握Spring框架的IOC和AOP实现原理（反射和动态代理）。 至少掌握一个MVC框架（Spring MVC，Struts等）的工作原理，并熟练运用。 至少掌握一个ORM框架(Hibernate，MyBatis等)的工作原理，并熟练运用。 数据结构与算法 掌握线性表和树的特点并熟练运用。 掌握常用排序和查找算法：插入排序(直接插入排序、希尔排序)、选择排序(直接选择排序、堆排序)、交换排序(冒泡排序、快速排序)、归并排序，顺序查找、二分查找、哈希查找。 熟练运用常见排序和查找算法思想解决编程问题。 了解几大基本算法：贪心算法、分治策略、动态规划。 计算机网络 掌握网络的分层结构，及每层的功能特点。 掌握TCP/IP的通信原理(三次握手、四次挥手) 数据库 掌握复杂的SQL语句编写。 掌握数据库的优化（SQL层面和表设计层面）。 至少掌握一款数据库产品。 熟悉高并发、大数据情况下的数据库开发。 Web技术 掌握AJAX的工作原理。 至少熟悉一款JS框架(比如JQuery)。 设计模式 熟悉常见的设计模式。 会将设计模式理论应用到实际开发中。 Linux 熟练运用Linux常见命令。 熟悉Linux操作系统基本概念及特点。 熟悉Shell脚本。 操作系统 掌握操作系统的进程管理。 了解操作系统的I/O。 正则表达式 掌握常见正则表达式符号。 熟练运用正则表达式解决实际问题(比如匹配电话号码、邮箱、域名等)。]]></content>
