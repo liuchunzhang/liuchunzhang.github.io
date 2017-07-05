@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java, coder, simple, elegant" />
+  <meta name="keywords" content="htmml,javascript,分页,demo," />
 
 
 
@@ -93,16 +93,17 @@
 
 
 
-<meta name="description" content="simple and elegant">
-<meta name="keywords" content="JAVA,SPRING,HADOOP,JQUERY,JAVASCRIPT,HTML5,CODER">
-<meta property="og:type" content="website">
-<meta property="og:title" content="刘纯彰de博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="一次取出所有的数据，适用于数据量较少的情景 数据表 table123456789101112131415161718192021222324&amp;lt;table id=&quot;sample-table-1&quot;&amp;gt;  &amp;lt;thead&amp;gt;    &amp;lt;tr&amp;gt;      &amp;lt;th&amp;gt;序号&amp;lt;/th&amp;gt;      &amp;lt;th&amp;gt;问题编号&amp;lt;/th&amp;gt;      &amp;l">
+<meta name="keywords" content="htmml,javascript,分页,demo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手动实现分页">
+<meta property="og:url" content="http://yoursite.com/2017/07/05/手动实现分页/index.html">
 <meta property="og:site_name" content="刘纯彰de博客">
-<meta property="og:description" content="simple and elegant">
+<meta property="og:description" content="一次取出所有的数据，适用于数据量较少的情景 数据表 table123456789101112131415161718192021222324&amp;lt;table id=&quot;sample-table-1&quot;&amp;gt;  &amp;lt;thead&amp;gt;    &amp;lt;tr&amp;gt;      &amp;lt;th&amp;gt;序号&amp;lt;/th&amp;gt;      &amp;lt;th&amp;gt;问题编号&amp;lt;/th&amp;gt;      &amp;l">
+<meta property="og:updated_time" content="2017-07-05T07:25:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="刘纯彰de博客">
-<meta name="twitter:description" content="simple and elegant">
+<meta name="twitter:title" content="手动实现分页">
+<meta name="twitter:description" content="一次取出所有的数据，适用于数据量较少的情景 数据表 table123456789101112131415161718192021222324&amp;lt;table id=&quot;sample-table-1&quot;&amp;gt;  &amp;lt;thead&amp;gt;    &amp;lt;tr&amp;gt;      &amp;lt;th&amp;gt;序号&amp;lt;/th&amp;gt;      &amp;lt;th&amp;gt;问题编号&amp;lt;/th&amp;gt;      &amp;l">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/05/手动实现分页/"/>
 
 
 
 
 
-  <title>刘纯彰de博客</title>
+  <title>手动实现分页 | 刘纯彰de博客</title>
   
 
 
@@ -161,9 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -310,9 +309,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -338,9 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/05/手动实现分页/" itemprop="url">手动实现分页</a></h1>
+          <h1 class="post-title" itemprop="name headline">手动实现分页</h1>
         
 
         <div class="post-meta">
@@ -405,6 +402,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -420,370 +422,84 @@
       
 
       
-        
-          <p>一次取出所有的数据，适用于数据量较少的情景</p>
+        <p>一次取出所有的数据，适用于数据量较少的情景</p>
 <h5 id="数据表-table"><a href="#数据表-table" class="headerlink" title="数据表 table"></a>数据表 table</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">id</span>=<span class="string">"sample-table-1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">thead</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>问题编号<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>问题说明<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>问题类型<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>所属主题<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>UPDATOR<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>操作<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/05/手动实现分页/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<a id="more"></a>
+<h5 id="底部页数-有一个页数选择器"><a href="#底部页数-有一个页数选择器" class="headerlink" title="底部页数 有一个页数选择器"></a>底部页数 有一个页数选择器</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span> <span class="attr">id</span>=<span class="string">"pager"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-5 col-sm-offset-1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"pageColumnNumber"</span>&gt;</span>共&amp;nbsp;$&#123;fn:length(questions)&#125;&amp;nbsp;条,&amp;nbsp;每页显示</div><div class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">class</span>=<span class="string">"select-small"</span> <span class="attr">id</span>=<span class="string">"pageColumnNumber"</span></span></div><div class="line">            <span class="attr">onchange</span>=<span class="string">"changePageColumnNumber()"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"10"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"20"</span>&gt;</span>20<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"50"</span>&gt;</span>50<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"100"</span>&gt;</span>100<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">    行 &amp;nbsp;&amp;nbsp;&amp;nbsp;共 &amp;nbsp;<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"totalPage"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span>&amp;nbsp;页</div><div class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-6"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">nav</span> <span class="attr">aria-label</span>=<span class="string">"Page navigation"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"pagination"</span> <span class="attr">id</span>=<span class="string">"pagenationUL"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">onclick</span>=<span class="string">"arrowPager(1)"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'####'</span>&gt;</span>&amp;laquo;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">onclick</span>=<span class="string">"toPage(1)"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'####'</span>&gt;</span>1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">onclick</span>=<span class="string">"toPage(2)"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'####'</span>&gt;</span>2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">onclick</span>=<span class="string">"toPage(3)"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'####'</span>&gt;</span>3<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">onclick</span>=<span class="string">"toPage(4)"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'####'</span>&gt;</span>4<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">onclick</span>=<span class="string">"toPage(5)"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'####'</span>&gt;</span>5<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">onclick</span>=<span class="string">"arrowPager(0)"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'####'</span>&gt;</span>&amp;raquo;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="js-功能实现"><a href="#js-功能实现" class="headerlink" title="js 功能实现"></a>js 功能实现</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> pageColumnNumber = <span class="number">10</span>;</div><div class="line">    <span class="keyword">var</span> currentPage = <span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> begin = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> currentPageColumn = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> totalColumnNumber = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> totalPage = <span class="number">0</span>;</div><div class="line"></div><div class="line">    jQuery(<span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</div><div class="line">        initPageTable();</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">arrowPager</span>(<span class="params">flag</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (flag == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (currentPage == <span class="number">1</span>) <span class="keyword">return</span>;</div><div class="line">            currentPage = currentPage - <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (currentPage == totalPage) <span class="keyword">return</span>;</div><div class="line">            currentPage = currentPage + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        begin = (currentPage - <span class="number">1</span>) * pageColumnNumber + <span class="number">1</span>;</div><div class="line">        currentPageColumn = currentPage * pageColumnNumber &gt; totalColumnNumber ? (totalColumnNumber - begin + <span class="number">1</span> ) : pageColumnNumber;</div><div class="line">        showTable();</div><div class="line">        showPager();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">toPage</span>(<span class="params">i</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> nextPage = <span class="built_in">parseInt</span>($(<span class="string">"#pagenationUL li:eq("</span> + i + <span class="string">") a"</span>).text());</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">isNaN</span>(nextPage)) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        currentPage = nextPage;</div><div class="line">        begin = (currentPage - <span class="number">1</span>) * pageColumnNumber + <span class="number">1</span>;</div><div class="line">        currentPageColumn = currentPage * pageColumnNumber &gt; totalColumnNumber ? (totalColumnNumber - begin + <span class="number">1</span> ) : pageColumnNumber;</div><div class="line"></div><div class="line">        showTable();</div><div class="line">        showPager();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">showPager</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        $(<span class="string">"#pagenationUL li"</span>).removeClass(<span class="string">"active"</span>);</div><div class="line">        $(<span class="string">"#pagenationUL li"</span>).removeClass(<span class="string">"disabled"</span>);</div><div class="line">        $(<span class="string">"#pagenationUL li"</span>).show();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (totalPage &lt; <span class="number">6</span> || currentPage &lt; <span class="number">4</span>) &#123;</div><div class="line">            initPager(<span class="number">1</span>);</div><div class="line">            $(<span class="string">"#pagenationUL li:gt("</span> + totalPage + <span class="string">")"</span>).hide();</div><div class="line">            $(<span class="string">"#pagenationUL li:eq(6)"</span>).show();</div><div class="line"></div><div class="line">            $cur = $(<span class="string">"#pagenationUL li:eq("</span> + currentPage + <span class="string">")"</span>);</div><div class="line">            $cur.addClass(<span class="string">"active"</span>);</div><div class="line">            $cur.html(<span class="string">"&lt;span&gt;"</span> + currentPage + <span class="string">"&lt;/span&gt;"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (currentPage &lt; (totalPage - <span class="number">1</span>)) &#123;</div><div class="line">            initPager(currentPage - <span class="number">2</span>);</div><div class="line"></div><div class="line">            $cur = $(<span class="string">"#pagenationUL li:eq(3)"</span>);</div><div class="line">            $cur.addClass(<span class="string">"active"</span>);</div><div class="line">            $cur.html(<span class="string">"&lt;span&gt;"</span> + currentPage + <span class="string">"&lt;/span&gt;"</span>);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (currentPage == (totalPage - <span class="number">1</span>)) &#123;</div><div class="line">            initPager(currentPage - <span class="number">3</span>);</div><div class="line"></div><div class="line">            $cur = $(<span class="string">"#pagenationUL li:eq(4)"</span>);</div><div class="line">            $cur.addClass(<span class="string">"active"</span>);</div><div class="line">            $cur.html(<span class="string">"&lt;span&gt;"</span> + currentPage + <span class="string">"&lt;/span&gt;"</span>);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            initPager(currentPage - <span class="number">4</span>);</div><div class="line"></div><div class="line">            $cur = $(<span class="string">"#pagenationUL li:eq(5)"</span>);</div><div class="line">            $cur.addClass(<span class="string">"active"</span>);</div><div class="line">            $cur.html(<span class="string">"&lt;span&gt;"</span> + currentPage + <span class="string">"&lt;/span&gt;"</span>);</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (currentPage == <span class="number">1</span>) &#123;</div><div class="line">            $(<span class="string">"#pagenationUL li:eq(0)"</span>).addClass(<span class="string">"disabled"</span>);</div><div class="line">            $(<span class="string">"#pagenationUL li:eq(0)"</span>).html(<span class="string">"&lt;span&gt;&amp;laquo;&lt;/span&gt;"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (currentPage == totalPage) &#123;</div><div class="line">            $(<span class="string">"#pagenationUL li:eq(6)"</span>).addClass(<span class="string">"disabled"</span>);</div><div class="line">            $(<span class="string">"#pagenationUL li:eq(6)"</span>).html(<span class="string">"&lt;span&gt;&amp;raquo;&lt;/span&gt;"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">initPager</span>(<span class="params">start</span>) </span>&#123;</div><div class="line">        $(<span class="string">"#pagenationUL li:eq(0)"</span>).html(<span class="string">"&lt;a href='####'&gt;&amp;laquo;&lt;/a&gt;"</span>);</div><div class="line">        $(<span class="string">"#pagenationUL li:eq(1)"</span>).html(<span class="string">"&lt;a href='####'&gt;"</span> + start + <span class="string">"&lt;/a&gt;"</span>);</div><div class="line">        $(<span class="string">"#pagenationUL li:eq(2)"</span>).html(<span class="string">"&lt;a href='####'&gt;"</span> + (start + <span class="number">1</span>) + <span class="string">"&lt;/a&gt;"</span>);</div><div class="line">        $(<span class="string">"#pagenationUL li:eq(3)"</span>).html(<span class="string">"&lt;a href='####'&gt;"</span> + (start + <span class="number">2</span>) + <span class="string">"&lt;/a&gt;"</span>);</div><div class="line">        $(<span class="string">"#pagenationUL li:eq(4)"</span>).html(<span class="string">"&lt;a href='####'&gt;"</span> + (start + <span class="number">3</span>) + <span class="string">"&lt;/a&gt;"</span>);</div><div class="line">        $(<span class="string">"#pagenationUL li:eq(5)"</span>).html(<span class="string">"&lt;a href='####'&gt;"</span> + (start + <span class="number">4</span>) + <span class="string">"&lt;/a&gt;"</span>);</div><div class="line">        $(<span class="string">"#pagenationUL li:eq(6)"</span>).html(<span class="string">"&lt;a href='####'&gt;&amp;raquo;&lt;/a&gt;"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">initPageTable</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        currentPage = <span class="number">1</span>;</div><div class="line">        pageColumnNumber = $(<span class="string">"#pageColumnNumber"</span>).val();</div><div class="line">        begin = (currentPage - <span class="number">1</span>) * pageColumnNumber + <span class="number">1</span>;</div><div class="line">        totalColumnNumber = $(<span class="string">"#sample-table-1"</span>).find(<span class="string">"tr"</span>).length - <span class="number">1</span>;</div><div class="line">        totalPage = <span class="built_in">Math</span>.ceil(totalColumnNumber / pageColumnNumber);</div><div class="line">        currentPageColumn = currentPage * pageColumnNumber &gt; totalColumnNumber ? (totalColumnNumber - begin + <span class="number">1</span> ) : pageColumnNumber;</div><div class="line"></div><div class="line">        showTable();</div><div class="line">        $(<span class="string">"#totalPage"</span>).text(totalPage);</div><div class="line">        showPager();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">changePageColumnNumber</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        pageColumnNumber = $(<span class="string">"#pageColumnNumber"</span>).val();</div><div class="line">        initPageTable();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">showTable</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        $(<span class="string">"#sample-table-1 tr:gt(0)"</span>).hide();</div><div class="line">        $(<span class="string">"#sample-table-1 tr:gt("</span> + (begin - <span class="number">1</span>) + <span class="string">")"</span>).filter(<span class="string">":lt("</span> + currentPageColumn + <span class="string">")"</span>).show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/04/java进阶架构师/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘纯彰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘纯彰de博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/04/java进阶架构师/" itemprop="url">java进阶架构师</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-04T13:19:16+08:00">
-                2017-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/htmml/" rel="tag"># htmml</a>
           
-
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/04/java进阶架构师/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/04/java进阶架构师/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/分页/" rel="tag"># 分页</a>
           
-
+            <a href="/tags/demo/" rel="tag"># demo</a>
           
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h2 id="JAVA-架构师、技术专家职位要求"><a href="#JAVA-架构师、技术专家职位要求" class="headerlink" title="JAVA 架构师、技术专家职位要求"></a>JAVA 架构师、技术专家职位要求</h2><h3 id="数据平台部架构师-（阿里）"><a href="#数据平台部架构师-（阿里）" class="headerlink" title="数据平台部架构师 （阿里）"></a>数据平台部架构师 （阿里）</h3><ol>
-<li><p>Java基础扎实，熟练掌握IO、多线程、集合等基础类库</p>
-</li>
-<li><p>熟悉分布式缓存、消息机制、搜索引擎等技术</p>
-</li>
-<li><p>熟悉J2EE规范</p>
-</li>
-<li><p>掌握常用的设计模式</p>
-</li>
-<li><p>熟悉高并发、高性能的分布式系统的设计及应用、调优</p>
-</li>
-<li><p>熟悉SQL、了解Mysql及相关分布式存储技术</p>
-</li>
-<li><p>有团队管理和项目管理的经验</p>
-</li>
-<li><p>有大数据平台研发或者开发经验</p>
-</li>
-<li><p>有互联网相关经历，有ERP、BOSS系统，大型企业及大型系统设计和架构能力</p>
-</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/04/java进阶架构师/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/04/java进阶架构师/" rel="next" title="java进阶架构师">
+                <i class="fa fa-chevron-left"></i> java进阶架构师
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/13/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘纯彰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘纯彰de博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/07/13/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-13T20:46:25+08:00">
-                2013-07-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2013/07/13/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2013/07/13/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2013/07/13/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -791,6 +507,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -810,8 +537,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/me.jpg"
@@ -873,6 +609,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据表-table"><span class="nav-number">1.</span> <span class="nav-text">数据表 table</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#底部页数-有一个页数选择器"><span class="nav-number">2.</span> <span class="nav-text">底部页数 有一个页数选择器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js-功能实现"><span class="nav-number">3.</span> <span class="nav-text">js 功能实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1007,10 +759,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -1028,6 +780,18 @@
       <script id="dsq-count-scr" src="https://liuchunzhang.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/07/05/手动实现分页/';
+          this.page.identifier = '2017/07/05/手动实现分页/';
+          this.page.title = '手动实现分页';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://liuchunzhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
