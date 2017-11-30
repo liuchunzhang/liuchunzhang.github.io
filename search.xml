@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Netty5+Spring+Maven简易框架环境搭建]]></title>
+    <url>%2F2017%2F11%2F29%2FNetty5-Spring-Maven%E7%AE%80%E6%98%93%E6%A1%86%E6%9E%B6%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[Netty5+Spring+Maven简易框架环境搭建文章结构说明Netty5+Maven+Spring环境搭建环境说明 IDEA jdk1.7+ maven3 Maven引入在IDEA中新建maven项目 可以用模板导入也可以不用 如下没有模板导入 File –&gt; New –&gt; Project. 如图 选择maven，选择jdk1.8 –&gt; Next 填好maven三坐标 –&gt; Next 填好项目信息 –&gt; Finish]]></content>
+      <categories>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>netty</tag>
+        <tag>框架</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Uml类图]]></title>
     <url>%2F2017%2F09%2F06%2FUml%E7%B1%BB%E5%9B%BE%2F</url>
     <content type="text"><![CDATA[UML类图知识图谱 UML类图总结UML常用软件 starUML使用文档]]></content>
